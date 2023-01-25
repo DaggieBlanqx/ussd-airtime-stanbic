@@ -18,7 +18,6 @@ class Stanbic {
             STK_PUSH:
                 'https://api.connect.stanbicbank.co.ke/api/sandbox/mpesa-checkout',
         };
-        this.accessToken = null;
     }
 
     generateToken() {
@@ -37,7 +36,6 @@ class Stanbic {
                         typeof res.raw_body === 'string'
                             ? JSON.parse(res.raw_body)
                             : res.raw_body;
-                    this.accessToken = data.access_token || null;
                     resolve({
                         status: 'success',
                         data,
@@ -46,7 +44,51 @@ class Stanbic {
         });
     }
 
-    stkPush({ phone, amount }) {}
+    stkPush({ phone, amount, txnNarrative, dbsReferenceId, billAccountRef }) {
+        if (!phone) {
+            throw new Error('"phone" is required');
+        }
+        if (!amount) {
+            throw new Error('"amount" is required');
+        }
+        return new Promise(async (resolve, reject) => {
+            const temp = await this.generateToken();
+            const access_token = temp.data.access_token;
+
+            const headers = {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${access_token}`,
+            };
+
+            const body = {
+                dbsReferenceId:
+                    dbsReferenceId ||
+                    'Africastalking-Hackathon-Demo-REFERENCE-ID',
+                billAccountRef:
+                    billAccountRef ||
+                    'Africastalking-Hackathon-Demo-BILLING-ACCOUNT-REF',
+                amount: amount.toFixed(2).toString(),
+                mobileNumber: phone.toString(),
+                corporateNumber: '740757',
+                txnNarrative: txnNarrative || 'Africastalking Hackathon Demo',
+            };
+
+            unirest('POST', this.endpoints.STK_PUSH)
+                .headers(headers)
+                .send(JSON.stringify(body))
+                .end(function (res) {
+                    if (res.error) reject({ error: res.error });
+                    const data =
+                        typeof res.raw_body === 'string'
+                            ? JSON.parse(res.raw_body)
+                            : res.raw_body;
+                    resolve({
+                        status: 'success',
+                        data,
+                    });
+                });
+        });
+    }
 }
 
 module.exports = Stanbic;

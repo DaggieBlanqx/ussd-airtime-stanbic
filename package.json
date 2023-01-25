@@ -26,12 +26,15 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/heroku/node-js-getting-started"
+        "url": "https://github.com/DaggieBlanqx/ussd-airtime-stanbic"
     },
     "keywords": [
-        "node",
-        "heroku",
-        "express"
+        "ussd",
+        "airtime",
+        "mpesa",
+        "stk push",
+        "africastalking",
+        "stanbic"
     ],
     "license": "MIT"
 }
