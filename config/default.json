@@ -2,16 +2,16 @@
     "PORT": 3000,
     "AT": {
         "default": {
-            "app_username": "",
-            "apikey": ""
+            "username": "",
+            "apiKey": ""
         },
         "ussd": {
-            "app_username": "",
-            "apikey": ""
+            "username": "",
+            "apiKey": ""
         },
         "airtime": {
-            "app_username": "",
-            "apikey": ""
+            "username": "",
+            "apiKey": ""
         }
     },
     "Stanbic": {}
