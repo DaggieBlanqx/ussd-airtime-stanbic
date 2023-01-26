@@ -15,7 +15,7 @@ module.exports = {
             env_production: {
                 NODE_ENV: 'production' || 'development',
             },
-            exec_mode: 'fork',
+            exec_mode: 'cluster',
             error_file: './logfiles/error_file.log',
             out_file: './logfiles/output_file.log',
             ref: 'origin/main',
