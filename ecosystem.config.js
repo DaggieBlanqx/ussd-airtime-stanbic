@@ -3,7 +3,6 @@ module.exports = {
         {
             name: 'AT-USSD-AIRTIME-STANBIC',
             script: '/var/webapps/ussd-airtime-stanbic/index.js',
-            interpreter: 'node@16.14.2',
             args: '',
             instances: 1,
             autorestart: true,
