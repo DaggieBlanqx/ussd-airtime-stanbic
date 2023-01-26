@@ -2,7 +2,7 @@ const StanbicAPI = require('./utils/Stanbic');
 const config = require('config');
 const AirtimeAPI = require('./utils/Airtime');
 const RainMaker = require('./utils/index');
-
+ 
 const Stanbic = new StanbicAPI(config.get('Stanbic'));
 const Airtime = new AirtimeAPI(config.get('AT').default);
 
@@ -24,6 +24,7 @@ const inputData = {
     sender: 254705212848, // sender is the phone number that will recieve an MPesa STK prompt
 };
 
-RainMaker(inputData)
-    .then((rm) => console.log({ rm }))
-    .then((rm_oops) => console.trace({ rm_oops }));
+// RainMaker(inputData)
+//     .then((rm) => console.log({ rm }))
+//     .then((rm_oops) => console.trace({ rm_oops }));
+ 
