@@ -14,9 +14,9 @@ const Airtime = new AirtimeAPI(config.get('AT').default);
 //     .then((xyz) => console.log({ xyz }))
 //     .catch((err) => console.trace(err));
 
-// Airtime.getBalance()
-//     .then((xyz) => console.log({ xyz }))
-//     .catch((err) => console.error(err));
+Airtime.getBalance()
+    .then((xyz) => console.log({ xyz }))
+    .catch((err) => console.error(err));
 
 const inputData = {
     amount: 10, // Amount is what the user will be prompted to pay via Mpesa

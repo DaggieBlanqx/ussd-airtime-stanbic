@@ -51,12 +51,6 @@ router.post('/ussd', (req, res) => {
             const amount = text.split('*')[1];
             console.log('rece', recipients);
             console.log('amount', amount);
-            const inputData = {
-                amount,
-                recipients,
-                sender:phoneNumber
-            };
-            console.log({inputData});
             
             response = `END Your recipients will receive airtime shortly`;
         } else {

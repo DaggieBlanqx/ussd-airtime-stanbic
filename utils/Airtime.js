@@ -65,8 +65,9 @@ class Airtime {
                     resolve({
                         status: 'success',
                         data: {
+                            balance,
                             currency: balance.split(' ')[0],
-                            balance: balance.split(' ')[1],
+                            numeric: balance.split(' ')[1],
                         },
                     });
                 })
