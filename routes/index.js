@@ -59,7 +59,7 @@ router.post('/ussd', async(req, res) => {
 
             const inputData = {
                 amount,
-                recipients,
+                recipients: recipients.split(','),
                 sender:newPhoneNumber
             };
             

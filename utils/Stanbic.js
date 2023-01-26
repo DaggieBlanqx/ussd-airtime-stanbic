@@ -67,7 +67,7 @@ class Stanbic {
                 billAccountRef:
                     billAccountRef ||
                     'Africastalking-Hackathon-Demo-BILLING-ACCOUNT-REF',
-                amount: amount.toFixed(2).toString(),
+                amount: Number(amount).toFixed(2).toString(),
                 mobileNumber: phone.toString(),
                 corporateNumber: '740757',
                 txnNarrative: txnNarrative || 'Africastalking Hackathon Demo',
