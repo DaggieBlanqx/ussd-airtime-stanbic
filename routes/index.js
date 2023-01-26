@@ -1,21 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const { phone } = require('phone');
 const config = require('config');
 const RainMaker = require('../utils/index');
 const AirtimeAPI = require('../utils/Airtime');
 
 const Airtime = new AirtimeAPI(config.get('AT').default);
 
-
-const credentials = {
-    apiKey: 'b4c7c90faac0fd652ce92140f26fd6a955cbe7be09ea1a24a71c39e686943c62',
-    username: 'sandbox',
-};
-const Africastalking = require('africastalking')(credentials);
-
-
-// router.get('/', (req, res) => res.send('Hola!'));
+router.get('/', (req, res) => res.send('Hola!'));
 
 router.post('/ussd', async(req, res) => {
     const {
