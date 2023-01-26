@@ -2,7 +2,9 @@ const express = require('express');
 const router = express.Router();
 const { phone } = require('phone');
 const config = require('config');
-const RainMaker = require('./utils/index');
+const RainMaker = require('../utils/index');
+const AirtimeAPI = require('../utils/Airtime');
+
 const Airtime = new AirtimeAPI(config.get('AT').default);
 
 
