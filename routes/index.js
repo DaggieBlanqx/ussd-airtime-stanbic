@@ -43,7 +43,10 @@ router.post('/ussd', (req, res) => {
        
         const regex = /^[254]+\d{9}/;
         if(regex.test(text.split('*')[2])) {
-            const newSet = text.split('*')[2];
+            const recipients = text.split('*')[2];
+            const amount = text.split('*')[1];
+            console.log('rece', recipients);
+            console.log('amount', amount);
             response = `END Your recipients will receive airtime shortly`;
         } else {
             response = `END You entered Incorrect phone numbers`
