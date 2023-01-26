@@ -2,7 +2,7 @@ const StanbicAPI = require('./utils/Stanbic');
 const config = require('config');
 const AirtimeAPI = require('./utils/Airtime');
 const RainMaker = require('./utils/index');
- 
+
 const Stanbic = new StanbicAPI(config.get('Stanbic'));
 const Airtime = new AirtimeAPI(config.get('AT').default);
 
@@ -27,4 +27,3 @@ const inputData = {
 // RainMaker(inputData)
 //     .then((rm) => console.log({ rm }))
 //     .then((rm_oops) => console.trace({ rm_oops }));
- 
