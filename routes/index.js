@@ -60,10 +60,17 @@ router.post('/ussd', async(req, res) => {
                 recipients,
                 sender:newPhoneNumber
             };
+            
             console.log({inputData});
             
+            const rq = await RainMaker(inputData);
 
-            response = `END Your recipients will receive airtime shortly`;
+            if(rq.status === 'success'){
+                response = `END Your recipients will receive airtime shortly`;
+            }else{
+                response = `END Sorry an error occurred. We are looking at it`;
+                console.trace({rq});
+            }
         } else {
             response = `END You entered Incorrect phone numbers`
         }
