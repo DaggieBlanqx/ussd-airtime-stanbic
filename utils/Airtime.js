@@ -1,7 +1,7 @@
 const config = require('config');
 const Africastalking = require('africastalking');
-
-// (config.get('AT').default);
+const { resolve } = require('path');
+const { reject } = require('lodash');
 
 class Airtime {
     constructor({ username, apiKey }) {
@@ -13,6 +13,7 @@ class Airtime {
         }
 
         this.airtime = Africastalking({ apiKey, username }).AIRTIME;
+        this.AT_APP = Africastalking({ apiKey, username }).APPLICATION;
     }
 
     send({ recipients, amount }) {
@@ -50,6 +51,24 @@ class Airtime {
                             });
                         }
                     }
+                })
+                .catch((error) => reject({ error }));
+        });
+    }
+    
+    getBalance() {
+        return new Promise((resolve, reject) => {
+            // Fetch the application data
+            this.AT_APP.fetchApplicationData()
+                .then((data) => {
+                    let balance = data.UserData.balance;
+                    resolve({
+                        status: 'success',
+                        data: {
+                            currency: balance.split(' ')[0],
+                            balance: balance.split(' ')[1],
+                        },
+                    });
                 })
                 .catch((error) => reject({ error }));
         });
