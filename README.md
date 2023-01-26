@@ -6,5 +6,9 @@
 
 ### Useful links
 
--   Africa's Talking APIs - https://developers.africastalking.com/
--   Africa's Talking Slack channel (for tech support and more) - https://slack.africastalking.com/
+-   Documentation on Africa's Talking APIs: https://developers.africastalking.com/
+-   Africa's Talking Slack channel (for tech support and more): https://slack.africastalking.com/
+-   The Elarian community:  https://community.elarian.com/events/#/list
+
+
+Happy hacking!

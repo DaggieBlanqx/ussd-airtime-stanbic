@@ -55,7 +55,7 @@ class Airtime {
                 .catch((error) => reject({ error }));
         });
     }
-    
+
     getBalance() {
         return new Promise((resolve, reject) => {
             // Fetch the application data
