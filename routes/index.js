@@ -15,7 +15,7 @@ const Africastalking = require('africastalking')(credentials);
 
 // router.get('/', (req, res) => res.send('Hola!'));
 
-router.post('/ussd', (req, res) => {
+router.post('/ussd', async(req, res) => {
     const {
         sessionId,
         serviceCode,
@@ -53,14 +53,29 @@ router.post('/ussd', (req, res) => {
             console.log('rece', recipients);
             console.log('amount', amount);
             console.log(newPhoneNumber);
+
+
+            const inputData = {
+                amount,
+                recipients,
+                sender:newPhoneNumber
+            };
+            console.log({inputData});
+            
+
             response = `END Your recipients will receive airtime shortly`;
         } else {
             response = `END You entered Incorrect phone numbers`
         }
         
     } else if ( text == '2') {
-        const balanceAmount = '30000';
-        response = `END Your Account balance is ${balanceAmount}`;
+        const rq = await Airtime.getBalance();
+        if(rq.status === 'success'){
+            const balanceAmount = rq.data.balance;
+            response = `END Your Account balance is ${balanceAmount}`;
+        }else{
+            response = `END Sorry, an error occurred . Try again later.`;
+        }
       
     } 
 
