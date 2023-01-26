@@ -1,6 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const { phone } = require('phone');
+const config = require('config');
+const RainMaker = require('./utils/index');
+const Airtime = new AirtimeAPI(config.get('AT').default);
+
 
 const credentials = {
     apiKey: 'b4c7c90faac0fd652ce92140f26fd6a955cbe7be09ea1a24a71c39e686943c62',
@@ -47,6 +51,13 @@ router.post('/ussd', (req, res) => {
             const amount = text.split('*')[1];
             console.log('rece', recipients);
             console.log('amount', amount);
+            const inputData = {
+                amount,
+                recipients,
+                sender:phoneNumber
+            };
+            console.log({inputData});
+            
             response = `END Your recipients will receive airtime shortly`;
         } else {
             response = `END You entered Incorrect phone numbers`
