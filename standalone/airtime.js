@@ -5,7 +5,7 @@ const AT = Africastalking(config.get('AT').default).AIRTIME;
 
 const sendAirtime = async () => {
     const output = await AT.send({
-        maxNumRetry:1,
+        maxNumRetry: 1,
         recipients: [
             {
                 phoneNumber: '+254705212848',

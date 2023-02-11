@@ -7,10 +7,10 @@ const text = 'Hello world!\n#builtWithAT\nhttps://twitter.com/Africastalking';
 
 const sendSMS = async () => {
     const output = await AT.send({
-        to: ['+254713236060','+254795781794'],
+        to: ['+254713236060', '+254795781794'],
         message: text,
         enqueue: true,
-      });
+    });
     console.log({ output });
 };
 

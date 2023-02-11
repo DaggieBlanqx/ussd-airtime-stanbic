@@ -15,8 +15,9 @@ class SMS {
 
     send({ recipients, message }) {
         return new Promise((resolve, reject) => {
-
-            const listOfRecipients = recipients.map((recipient, index) =>`+${recipient}`);
+            const listOfRecipients = recipients.map(
+                (recipient, index) => `+${recipient}`
+            );
 
             const options = {
                 to: listOfRecipients,
@@ -24,8 +25,7 @@ class SMS {
                 enqueue: true,
             };
 
-            this.SMS
-                .send(options)
+            this.SMS.send(options)
                 .then((results) => {
                     if (results.errorMessage === 'None') {
                         resolve({ status: 'success', data: results.responses });

@@ -10,7 +10,7 @@ const RainMakerSequential = ({ amount, recipients, sender }) => {
     return new Promise((resolve, reject) => {
         Stanbic.stkPush({ amount, phone: sender })
             .then((stanbic_outcome) => {
-                console.trace({ stanbic_outcome });
+                console.info({ stanbic_outcome });
 
                 setTimeout(() => {
                     Airtime.send({
@@ -18,7 +18,7 @@ const RainMakerSequential = ({ amount, recipients, sender }) => {
                         amount,
                     })
                         .then((airtime_outcome) => {
-                            console.trace({ airtime_outcome });
+                            console.info({ airtime_outcome });
                             resolve({
                                 status: 'success',
                                 data: {
@@ -53,9 +53,9 @@ const RainMakerParallel = ({ amount, recipients, sender }) => {
                     }))
                 ];
 
-            resolve({status: "success", allTasks});
+            resolve({ status: 'success', allTasks });
         } catch (error) {
-            reject({status:"error", error});
+            reject({ status: 'error', error });
         }
     });
 };
