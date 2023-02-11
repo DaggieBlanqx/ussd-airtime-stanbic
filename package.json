@@ -9,11 +9,11 @@
         "start": "nodemon index.js",
         "prettier": "prettier --ignore-path .prettierignore --config prettier.config.js --write .",
         "quickpush": "git status && git add * && git commit * -m \"Updated Code\" && git push",
-        "standalone:sms":"node standalone/sms.js",
-        "standalone:airtime":"node standalone/airtime.js"
+        "standalone:sms": "node standalone/sms.js",
+        "standalone:airtime": "node standalone/airtime.js"
     },
     "dependencies": {
-        "africastalking": "^0.5.5",
+        "africastalking": "^0.6.0",
         "body-parser": "^1.20.0",
         "config": "^3.3.8",
         "cors": "^2.8.5",

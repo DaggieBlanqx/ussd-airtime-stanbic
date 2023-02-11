@@ -60,7 +60,7 @@ const RainMakerParallel = ({ amount, recipients, sender }) => {
     });
 };
 
-// const RainMaker = RainMakerSequential;
-const RainMaker = RainMakerParallel;
+const RainMaker = RainMakerSequential;
+// const RainMaker = RainMakerParallel;
 
 module.exports = RainMaker;
