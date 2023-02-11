@@ -26,6 +26,12 @@ class Airtime {
                 actualAmount = amount;
             }
 
+            if (actualAmount > 10) {
+                actualAmount = 10;
+            } else if (actualAmount < 5) {
+                actualAmount = 5;
+            }
+
             const listOfRecipients = recipients.map((recipient, index) => {
                 return {
                     phoneNumber: `+${recipient}`,
