@@ -4,12 +4,13 @@
     "description": "Sell airtime using Africastalking USSD and Airtime APIs, alongside Stanbic",
     "main": "index.js",
     "scripts": {
-        "dev": "nodemon index.js",
-        "_start": "NODE_ENV=production nodemon index.js",
         "dev": "NODE_ENV=development nodemon index.js",
+        "_start": "NODE_ENV=production nodemon index.js",
         "start": "nodemon index.js",
         "prettier": "prettier --ignore-path .prettierignore --config prettier.config.js --write .",
-        "quickpush": "git status && git add * && git commit * -m \"Updated Code\" && git push"
+        "quickpush": "git status && git add * && git commit * -m \"Updated Code\" && git push",
+        "standalone:sms":"node standalone/sms.js",
+        "standalone:airtime":"node standalone/airtime.js"
     },
     "dependencies": {
         "africastalking": "^0.5.5",
@@ -24,7 +25,8 @@
         "nodemon": "^2.0.20",
         "phone": "^3.1.28",
         "prettier": "^2.7.1",
-        "request": "^2.88.2"
+        "request": "^2.88.2",
+        "unirest": "^0.6.0"
     },
     "repository": {
         "type": "git",

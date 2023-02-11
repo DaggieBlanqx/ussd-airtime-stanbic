@@ -11,3 +11,8 @@
 -   The Elarian community: https://community.elarian.com/events/#/list
 
 Happy hacking!
+
+*384*420320#
+*483*143#
+#BuildWithAT
+https://twitter.com/Africastalking
