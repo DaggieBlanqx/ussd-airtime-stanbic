@@ -12,26 +12,24 @@ const RainMakerSequential = ({ amount, recipients, sender }) => {
             .then((stanbic_outcome) => {
                 console.info({ stanbic_outcome });
 
-                setTimeout(() => {
-                    Airtime.send({
-                        recipients,
-                        amount,
-                    })
-                        .then((airtime_outcome) => {
-                            console.info({ airtime_outcome });
-                            resolve({
-                                status: 'success',
-                                data: {
-                                    mpesa: stanbic_outcome.data,
-                                    airtime: airtime_outcome.data,
-                                },
-                            });
-                        })
-                        .catch((airtimeErr) => {
-                            console.trace(airtimeErr);
-                            reject({ airtimeErr });
+                Airtime.send({
+                    recipients,
+                    amount,
+                })
+                    .then((airtime_outcome) => {
+                        console.info({ airtime_outcome });
+                        resolve({
+                            status: 'success',
+                            data: {
+                                mpesa: stanbic_outcome.data,
+                                airtime: airtime_outcome.data,
+                            },
                         });
-                }, 5000);
+                    })
+                    .catch((airtimeErr) => {
+                        console.trace(airtimeErr);
+                        reject({ airtimeErr });
+                    });
             })
             .catch((StanbicErr) => {
                 console.trace({ StanbicErr });
