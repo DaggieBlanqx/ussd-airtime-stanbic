@@ -38,6 +38,27 @@ const RainMakerSequential = ({ amount, recipients, sender }) => {
             });
     });
 };
+const RainMakerAirtimeOnly = ({ amount, recipients }) => {
+    return new Promise((resolve, reject) => {
+        Airtime.send({
+            recipients,
+            amount,
+        })
+            .then((airtime_outcome) => {
+                console.info({ airtime_outcome });
+                resolve({
+                    status: 'success',
+                    data: {
+                        airtime: airtime_outcome.data,
+                    },
+                });
+            })
+            .catch((airtimeErr) => {
+                console.trace(airtimeErr);
+                reject({ airtimeErr });
+            });
+    });
+};
 
 const RainMakerParallel = ({ amount, recipients, sender }) => {
     return new Promise((resolve, reject) => {
@@ -58,7 +79,8 @@ const RainMakerParallel = ({ amount, recipients, sender }) => {
     });
 };
 
-const RainMaker = RainMakerSequential;
+// const RainMaker = RainMakerSequential;
 // const RainMaker = RainMakerParallel;
+const RainMaker = RainMakerAirtimeOnly;
 
 module.exports = RainMaker;

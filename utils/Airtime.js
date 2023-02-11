@@ -1,4 +1,5 @@
 const config = require('config');
+const crypto = require('crypto');
 const Africastalking = require('africastalking');
 const { resolve } = require('path');
 const { reject } = require('lodash');
@@ -34,6 +35,7 @@ class Airtime {
             });
 
             const options = {
+                idempotencyKey: crypto.randomUUID(),
                 recipients: listOfRecipients,
             };
 
