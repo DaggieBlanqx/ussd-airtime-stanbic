@@ -3,11 +3,11 @@ const Africastalking = require('africastalking');
 
 const AT = Africastalking(config.get('AT').default).SMS;
 
-const text = 'Hello world!\n#builtWithAT\nhttps://twitter.com/Africastalking';
+const text = 'Click https://twitter.com/intent/tweet?Hello world! #builtWithAT @AfricasTalking @GrahamIngokho @m_k_global @daggieblanqx @LoiseKimwe SMS|USSD|Airtime|Voice';
 
 const sendSMS = async () => {
     const output = await AT.send({
-        to: ['+254713236060', '+254795781794'],
+        to: ['+254705212848'],
         message: text,
         enqueue: true,
     });

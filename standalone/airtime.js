@@ -9,7 +9,7 @@ const sendAirtime = async () => {
         recipients: [
             {
                 phoneNumber: '+254705212848',
-                amount: 50,
+                amount: 5,
                 currencyCode: 'KES',
             },
             // {
